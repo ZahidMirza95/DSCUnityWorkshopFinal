@@ -57,12 +57,12 @@ public class PlayerController : MonoBehaviour
     }
     bool isGrounded()
     {
-        Collider2D groundCollider = Physics2D.OverlapBox(new Vector2(rigidbody2D.position.x, rigidbody2D.position.y) + Vector2.down*0.6f, new Vector2(0.5f,0.5f), 0.0f, platformLayerMask);
+        Collider2D groundCollider = Physics2D.OverlapBox(rigidbody2D.position + Vector2.down*0.6f, new Vector2(0.5f,0.5f), 0.0f, platformLayerMask);
         return groundCollider != null;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(new Vector2(rigidbody2D.position.x, rigidbody2D.position.y) + Vector2.down * 0.6f, new Vector2(0.5f, 0.5f));
+        Gizmos.DrawWireCube(rigidbody2D.position + Vector2.down * 0.6f, new Vector2(0.5f, 0.5f));
     }
 }
